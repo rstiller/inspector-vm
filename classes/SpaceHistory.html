@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -452,7 +449,7 @@ export class SpaceHistory {
 export class V8MemoryMetrics extends BaseMetric implements MetricSet {
 
     /**
-     * Contains ll the metrics in this metric-set.
+     * Contains all the metrics in this metric-set.
      *
      * @private
      * @type {Metric[]}
@@ -626,9 +623,10 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
      * Sets the group of this metric-set as well as all contained metrics.
      *
      * @param {string} group
+     * @returns {this}
      * @memberof V8MemoryMetrics
      */
-    public setGroup(group: string): void {
+    public setGroup(group: string): this {
         this.group &#x3D; group;
 
         this.totalHeapSize.setGroup(group);
@@ -646,6 +644,8 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
             history.size.setGroup(group);
             history.usedSize.setGroup(group);
         });
+
+        return this;
     }
 
     /**
@@ -653,9 +653,10 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
      *
      * @param {string} name
      * @param {string} value
+     * @returns {this}
      * @memberof V8MemoryMetrics
      */
-    public setTag(name: string, value: string): void {
+    public setTag(name: string, value: string): this {
         this.tags.set(name, value);
 
         this.totalHeapSize.setTag(name, value);
@@ -673,6 +674,8 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
             history.size.setTag(name, value);
             history.usedSize.setTag(name, value);
         });
+
+        return this;
     }
 
     /**
@@ -681,7 +684,7 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
      * @param {string} name
      * @memberof V8MemoryMetrics
      */
-    public removeTag(name: string): void {
+    public removeTag(name: string): this {
         this.tags.delete(name);
 
         this.totalHeapSize.removeTag(name);
@@ -699,6 +702,8 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
             history.size.removeTag(name);
             history.usedSize.removeTag(name);
         });
+
+        return this;
     }
 
 }
@@ -734,7 +739,9 @@ export class V8MemoryMetrics extends BaseMetric implements MetricSet {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

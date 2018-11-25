@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -55,7 +52,11 @@
 <p><code>npm install --save inspector-vm</code></p>
 <h2 id="basic-usage">basic usage</h2>
 <div><pre class="line-numbers"><code class="language-typescript">import { MetricRegistry } from &quot;inspector-metrics&quot;;
-import { V8MemoryMetrics, V8GCMetrics } from &quot;inspector-vm&quot;;
+import {
+    V8EventLoop,
+    V8MemoryMetrics,
+    V8GCMetrics
+} from &quot;inspector-vm&quot;;
 
 // get a registry
 const registry: MetricRegistry = ...;
@@ -63,19 +64,32 @@ const registry: MetricRegistry = ...;
 // instance the memory metric, contains
 //   - space statistics
 //   - memory statistics
-const memoryMetrics: V8MemoryMetrics = new V8MemoryMetrics(&quot;v8&quot;, registry.getDefaultClock());
+const memoryMetrics: V8MemoryMetrics = new V8MemoryMetrics(&quot;v8&quot;);
 //   - gc statistics
-const gcMetrics: V8GCMetrics = new V8GCMetrics(&quot;gc&quot;, registry.getDefaultClock());
+const gc: V8GCMetrics = new V8GCMetrics(&quot;gc&quot;, registry.getDefaultClock());
+//   - event loop delay / latency
+const eventLoop: V8EventLoop = new V8EventLoop(&quot;eventLoop&quot;);
+//   - cpu_usage (system, user, total)
+//   - active_handles
+//   - active_requests
+const processMetric: V8ProcessMetrics = new V8ProcessMetrics(&quot;process&quot;);
 
 // metric is registered und the name &quot;v8&quot;
-// defaults to group &quot;gc&quot;
-registry.register(memoryMetrics.getName(), memoryMetrics);
+registry.registerMetric(memoryMetrics);
+// metric is registered und the name &quot;gc&quot;
+registry.registerMetric(gc);
+// metric is registered und the name &quot;eventLoop&quot;
+registry.registerMetric(eventLoop);
+// metric is registered und the name &quot;process&quot;
+registry.registerMetric(processMetric);
 
 // setup reporter ...
 
 // note that unstopped metrics can cause the application to keep running
-gcMetrics.stop();
-memoryMetrics.stop();</code></pre></div><h2 id="license">License</h2>
+memoryMetrics.stop();
+gc.stop();
+eventLoop.stop();
+processMetric.stop();</code></pre></div><h2 id="license">License</h2>
 <p><a href="https://www.opensource.org/licenses/mit-license.php">MIT</a></p>
 
 
@@ -117,7 +131,9 @@ memoryMetrics.stop();</code></pre></div><h2 id="license">License</h2>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -556,7 +553,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Contains ll the metrics in this metric-set.</p>
+                        <div class="io-description"><p>Contains all the metrics in this metric-set.</p>
 </div>
                     </td>
                 </tr>
@@ -729,7 +726,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:191</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="198" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:198</a></div>
                             </td>
                         </tr>
 
@@ -767,13 +764,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -802,7 +792,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:158</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:159</a></div>
                             </td>
                         </tr>
 
@@ -840,13 +830,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -875,7 +858,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:175</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:179</a></div>
                             </td>
                         </tr>
 
@@ -925,13 +908,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -1002,7 +978,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:201</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="210" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:210</a></div>
                             </td>
                         </tr>
 
@@ -1042,7 +1018,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:207</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:216</a></div>
                             </td>
                         </tr>
 
@@ -1082,7 +1058,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:214</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:223</a></div>
                             </td>
                         </tr>
 
@@ -1122,7 +1098,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="221" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:221</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">lib/metrics/V8ProcessMetrics.ts:230</a></div>
                             </td>
                         </tr>
 
@@ -1171,7 +1147,7 @@ import {
 export class V8ProcessMetrics extends BaseMetric implements MetricSet {
 
     /**
-     * Contains ll the metrics in this metric-set.
+     * Contains all the metrics in this metric-set.
      *
      * @private
      * @type {Metric[]}
@@ -1253,7 +1229,7 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
         this.cpuTotalUsage.setTag(&quot;type&quot;, &quot;total&quot;);
 
         this.cpuUserUsage &#x3D; new MonotoneCounter(&quot;cpu_usage&quot;, &quot;User CPU time spent in microseconds&quot;);
-        this.cpuUserUsage.setTag(&quot;type&quot;, &quot;uesr&quot;);
+        this.cpuUserUsage.setTag(&quot;type&quot;, &quot;user&quot;);
 
         this.activeHandles &#x3D; new SimpleGauge(&quot;active_handles&quot;, &quot;Number of active handles&quot;);
         this.activeRequests &#x3D; new SimpleGauge(&quot;active_requests&quot;, &quot;Number of active requests&quot;);
@@ -1264,7 +1240,7 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
         this.metrics.push(this.cpuTotalUsage);
         this.metrics.push(this.cpuUserUsage);
 
-        this.timer &#x3D; scheduler(() &#x3D;&gt; this.update(), 1000);
+        this.timer &#x3D; scheduler(async () &#x3D;&gt; this.update(), 1000);
     }
 
     /**
@@ -1304,9 +1280,10 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
      * Sets the group of this metric-set as well as all contained metrics.
      *
      * @param {string} group
+     * @returns {this}
      * @memberof V8ProcessMetrics
      */
-    public setGroup(group: string): void {
+    public setGroup(group: string): this {
         this.group &#x3D; group;
 
         this.activeHandles.setGroup(group);
@@ -1314,6 +1291,8 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
         this.cpuSystemUsage.setGroup(group);
         this.cpuTotalUsage.setGroup(group);
         this.cpuUserUsage.setGroup(group);
+
+        return this;
     }
 
     /**
@@ -1321,9 +1300,10 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
      *
      * @param {string} name
      * @param {string} value
+     * @returns {this}
      * @memberof V8ProcessMetrics
      */
-    public setTag(name: string, value: string): void {
+    public setTag(name: string, value: string): this {
         this.tags.set(name, value);
 
         this.activeHandles.setTag(name, value);
@@ -1331,15 +1311,18 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
         this.cpuSystemUsage.setTag(name, value);
         this.cpuTotalUsage.setTag(name, value);
         this.cpuUserUsage.setTag(name, value);
+
+        return this;
     }
 
     /**
      * Removes the specified tag from this metric-set and all contained metrics accordingly.
      *
      * @param {string} name
+     * @returns {this}
      * @memberof V8ProcessMetrics
      */
-    public removeTag(name: string): void {
+    public removeTag(name: string): this {
         this.tags.delete(name);
 
         this.activeHandles.removeTag(name);
@@ -1347,6 +1330,8 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
         this.cpuSystemUsage.removeTag(name);
         this.cpuTotalUsage.removeTag(name);
         this.cpuUserUsage.removeTag(name);
+
+        return this;
     }
 
     private update() {
@@ -1414,7 +1399,9 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

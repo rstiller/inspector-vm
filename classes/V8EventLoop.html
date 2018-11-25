@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -319,7 +316,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Contains ll the metrics in this metric-set.</p>
+                        <div class="io-description"><p>Contains all the metrics in this metric-set.</p>
 </div>
                     </td>
                 </tr>
@@ -492,7 +489,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">lib/metrics/V8EventLoop.ts:132</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">lib/metrics/V8EventLoop.ts:135</a></div>
                             </td>
                         </tr>
 
@@ -530,13 +527,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -565,7 +555,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">lib/metrics/V8EventLoop.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">lib/metrics/V8EventLoop.ts:148</a></div>
                             </td>
                         </tr>
 
@@ -638,7 +628,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">lib/metrics/V8EventLoop.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">lib/metrics/V8EventLoop.ts:108</a></div>
                             </td>
                         </tr>
 
@@ -676,13 +666,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -711,7 +694,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">lib/metrics/V8EventLoop.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">lib/metrics/V8EventLoop.ts:122</a></div>
                             </td>
                         </tr>
 
@@ -761,13 +744,6 @@
                             </div>
                             <div>
                             </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -846,7 +822,7 @@ import {
 export class V8EventLoop extends BaseMetric implements MetricSet {
 
     /**
-     * Contains ll the metrics in this metric-set.
+     * Contains all the metrics in this metric-set.
      *
      * @private
      * @type {Metric[]}
@@ -887,7 +863,7 @@ export class V8EventLoop extends BaseMetric implements MetricSet {
         );
 
         this.metrics.push(this.eventLoopLag);
-        this.timer &#x3D; scheduler(() &#x3D;&gt; {
+        this.timer &#x3D; scheduler(async () &#x3D;&gt; {
             setImmediate((start) &#x3D;&gt; this.reportEventloopLag(start), process.hrtime());
         }, 500);
     }
@@ -929,12 +905,13 @@ export class V8EventLoop extends BaseMetric implements MetricSet {
      * Sets the group of this metric-set as well as all contained metrics.
      *
      * @param {string} group
+     * @returns {this}
      * @memberof V8EventLoop
      */
-    public setGroup(group: string): void {
+    public setGroup(group: string): this {
         this.group &#x3D; group;
-
         this.eventLoopLag.setGroup(group);
+        return this;
     }
 
     /**
@@ -942,24 +919,26 @@ export class V8EventLoop extends BaseMetric implements MetricSet {
      *
      * @param {string} name
      * @param {string} value
+     * @returns {this}
      * @memberof V8EventLoop
      */
-    public setTag(name: string, value: string): void {
+    public setTag(name: string, value: string): this {
         this.tags.set(name, value);
-
         this.eventLoopLag.setTag(name, value);
+        return this;
     }
 
     /**
      * Removes the specified tag from this metric-set and all contained metrics accordingly.
      *
      * @param {string} name
+     * @returns {this}
      * @memberof V8EventLoop
      */
-    public removeTag(name: string): void {
+    public removeTag(name: string): this {
         this.tags.delete(name);
-
         this.eventLoopLag.removeTag(name);
+        return this;
     }
 
     /**
@@ -1008,7 +987,9 @@ export class V8EventLoop extends BaseMetric implements MetricSet {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
