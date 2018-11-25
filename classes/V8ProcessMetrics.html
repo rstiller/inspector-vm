@@ -1356,14 +1356,17 @@ export class V8ProcessMetrics extends BaseMetric implements MetricSet {
 
     private updateCpuUsage() {
         const cpuUsage &#x3D; process.cpuUsage();
-        const userUsageMicros &#x3D; cpuUsage.user - this.lastUsage.user;
-        const systemUsageMicros &#x3D; cpuUsage.system - this.lastUsage.system;
+
+        if (this.lastUsage) {
+            const userUsageMicros &#x3D; cpuUsage.user - this.lastUsage.user;
+            const systemUsageMicros &#x3D; cpuUsage.system - this.lastUsage.system;
+
+            this.cpuSystemUsage.increment(systemUsageMicros);
+            this.cpuTotalUsage.increment(userUsageMicros + systemUsageMicros);
+            this.cpuUserUsage.increment(userUsageMicros);
+        }
 
         this.lastUsage &#x3D; cpuUsage;
-
-        this.cpuSystemUsage.increment(systemUsageMicros);
-        this.cpuTotalUsage.increment(userUsageMicros + systemUsageMicros);
-        this.cpuUserUsage.increment(userUsageMicros);
     }
 
 }
