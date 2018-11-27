@@ -1,5 +1,5 @@
 {
-  "name": "inspector-vm",
+  "name": "@doubret/inspector-vm",
   "description": "VM metric collector for nodejs",
   "homepage": "https://rstiller.github.io/inspector-vm/",
   "version": "3.1.0",
@@ -44,8 +44,11 @@
   },
   "dependencies": {
     "gc-stats": "^1.2.1",
-    "inspector-metrics": "^1.15.0",
+    "inspector-metrics": "^1.16.0",
     "source-map-support": "^0.5.9"
+  },
+  "peerDependencies": {
+    "inspector-metrics": "^1.16.0"
   },
   "files": [
     "build",
