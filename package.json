@@ -1,5 +1,5 @@
 {
-  "name": "@doubret/inspector-vm",
+  "name": "inspector-vm",
   "description": "VM metric collector for nodejs",
   "homepage": "https://rstiller.github.io/inspector-vm/",
   "version": "3.2.2",
